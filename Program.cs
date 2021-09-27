@@ -128,11 +128,12 @@ namespace DIS_Assignment_2_Fall_2021
                 List<int> altitudeList = new List<int>();
                 // apend 0 to the list as the first element (the starting point)
                 altitudeList.Add(0);
-                // loop through the altitude gains and add to altitude
+                // loop through the altitude gains and add value to tyhe last element of altitude list
                 foreach (int g in gain)
                 {
                     altitudeList.Add(g + altitudeList.Last());
                 }
+                // find the max valu and return it
                 return altitudeList.Max();
             }
             catch (Exception)
@@ -166,10 +167,25 @@ namespace DIS_Assignment_2_Fall_2021
 
         public static int SearchInsert(int[] nums, int target)
         {
+            // define the indices of the first and last elements and length of given array
+            int start = 0, end = nums.Length - 1;
             try
             {
-                //Write your Code here.
-                return -1;
+                // Traverse the search space
+                while (start <= end)
+                {
+                    int mid = (start + end) / 2;
+
+                    // If target is found
+                    if (nums[mid] == target)
+                        return mid;
+                    else if (nums[mid] < target)
+                        start = mid + 1;
+                    else
+                        end = mid - 1;
+                }
+                // Return index of position to insert target
+                return end + 1;
             }
             catch (Exception)
             {
