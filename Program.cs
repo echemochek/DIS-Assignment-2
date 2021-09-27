@@ -423,11 +423,36 @@ namespace DIS_Assignment_2_Fall_2021
 
         public static int CountConsistentStrings(string allowed, string[] words)
         {
+            // Dictionary<int, char> allowedDict = new Dictionary<int, char>();
+            var set = new HashSet<char>();
             try
             {
-                //write your code here.
-                return 0;
+                for (int i = 0; i < allowed.Length; i++)
+                {
+                    set.Add(allowed[i]);
+                }
+
+                int count = 0;
+                for (int i = 0; i < words.Length; i++)
+                {
+                    bool found = true;
+                    for (int j = 0; j < words[i].Length; j++)
+                    {
+                        if (!set.Contains(words[i][j]))
+                        {
+                            found = false;
+                            break;
+                        }
+                    }
+                    if (found)
+                    {
+                        count++;
+                    }
+                }
+
+                return count;
             }
+
             catch (Exception)
             {
 
