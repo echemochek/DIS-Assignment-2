@@ -242,7 +242,7 @@ namespace DIS_Assignment_2_Fall_2021
        
          */
 
-        public static bool UniqueOccurrences(int[] arr)
+        public static bool UniqueOccurrences(int[] myArray)
         {
             try
             {
@@ -310,8 +310,28 @@ namespace DIS_Assignment_2_Fall_2021
         {
             try
             {
-                //write your code here.
-                return 0;
+                // initialize a counter to keep track of the count
+                int count = 0;
+
+                // traverse items in the list
+                foreach (List<string> item in items)
+                {
+                    // check iteratively if condition is met
+                    if ((ruleKey == "type") && (item[0] == ruleValue))
+                    {
+                        count += 1;
+                    }
+                    else if ((ruleKey == "color") && (item[1] == ruleValue))
+                    {
+                        count += 1;
+                    }
+                    else if ((ruleKey == "name") && (item[2] == ruleValue))
+                    {
+                        count += 1;
+                    }
+                }
+                // return the total number of occurences 
+                return count;
             }
             catch (Exception)
             {
