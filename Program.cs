@@ -246,8 +246,31 @@ namespace DIS_Assignment_2_Fall_2021
         {
             try
             {
-                //write your code here.
-                return false;
+                // It would be nice to store the frequency of each element
+                Dictionary<int, int> freq = new Dictionary<int, int>();
+                // We find the frequency and store
+                for (int i = 0; i < myArray.Length; i++)
+                {
+                    if (freq.ContainsKey(myArray[i]))
+                    {
+                        freq[myArray[i]] = freq[myArray[i]] + 1;
+                    }
+                    else
+                    {
+                        freq.Add(myArray[i], 1);
+                    }
+                }
+                HashSet<int> uniqueFreq = new HashSet<int>();
+                // Check for equality of frequency of elements
+                foreach (KeyValuePair<int, int> i in freq)
+                {
+                    if (uniqueFreq.Contains(i.Value))
+                        return false;
+                    else
+                        uniqueFreq.Add(i.Value);
+                }
+                // True if each frequency value is unique
+                return true;
             }
             catch (Exception)
             {
