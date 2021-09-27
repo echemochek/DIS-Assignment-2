@@ -480,13 +480,19 @@ namespace DIS_Assignment_2_Fall_2021
         {
             try
             {
-                //write your code here.
+                
                 //List<int> ans = new List<int>();
-                int[] ans = { };
+                // create an empty array to store indices
+                int[] ans = {};
+
+                // traverse the first array
                 foreach (int num in nums1)
                 {
+                    // get index of element of array 1 in array 2
+                    // append index to the array of indicess
                     ans.Append(Array.IndexOf(nums2, num));
                 }
+                // return array of indices
                 return ans;
             }
             catch (Exception)
