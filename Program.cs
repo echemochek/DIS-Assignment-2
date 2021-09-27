@@ -370,11 +370,27 @@ namespace DIS_Assignment_2_Fall_2021
 
         public static void targetSum(int[] nums, int target)
         {
+            int head = 1, tail = nums.Length;
+
             try
             {
-                //write your code here.
-                //print the answer in the function itself.
-
+                while (head < tail)
+                {
+                    int total = nums[head - 1] - nums[tail - 1];
+                    if (total < target)
+                    {
+                        head = head + 1;
+                    }
+                    else if (total > target)
+                    {
+                        tail = tail - 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{head}, {tail}");
+                    }
+                    //Console.WriteLine($"{head}, {tail}");
+                }
             }
             catch (Exception)
             {
