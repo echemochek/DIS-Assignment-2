@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DIS_Assignment_2_Fall_2021
 {
@@ -123,8 +124,16 @@ namespace DIS_Assignment_2_Fall_2021
         {
             try
             {
-                //write your code here.
-                return 0;
+                // create empty list to store altitudes
+                List<int> altitudeList = new List<int>();
+                // apend 0 to the list as the first element (the starting point)
+                altitudeList.Add(0);
+                // loop through the altitude gains and add to altitude
+                foreach (int g in gain)
+                {
+                    altitudeList.Add(g + altitudeList.Last());
+                }
+                return altitudeList.Max();
             }
             catch (Exception)
             {
